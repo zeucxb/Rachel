@@ -10,9 +10,9 @@ import (
 
 func main() {
 
-	_, err := os.Stat("/commands/")
+	_, err := os.Stat("/rachel/")
 	if err != nil {
-		if err := os.Mkdir("/commands/", 0777); err != nil {
+		if err := os.Mkdir("/rachel/", 0777); err != nil {
 			command := strings.Join(os.Args, " ")
 			log.Fatalf("Permision problem, please execute rachel as root. (sudo %s)", command)
 		}

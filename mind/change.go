@@ -14,7 +14,7 @@ func Change(name string) {
 	// Command - the command to be change
 	command := strings.Join(flag.Args(), " ")
 
-	commandFile := fmt.Sprintf("/commands/%s.rachel", name)
+	commandFile := fmt.Sprintf("/rachel/%s.rachel", name)
 
 	_, err := os.Stat(commandFile)
 	if err != nil {
