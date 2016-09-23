@@ -9,16 +9,16 @@ import (
 	"strings"
 )
 
-// Teach - teach a command to Rachel
-func Teach(name string) {
-	// Command - the command to be teach
+// Change - change a rachel command
+func Change(name string) {
+	// Command - the command to be change
 	command := strings.Join(flag.Args(), " ")
 
 	commandFile := fmt.Sprintf("/commands/%s.rachel", name)
 
 	_, err := os.Stat(commandFile)
-	if err == nil {
-		log.Fatalf("The %s command already exists. Try to change it. (sudo rachel -change %s %s)", name, name, command)
+	if err != nil {
+		log.Fatalf("%s is not a valid command. Try to teach it. (sudo rachel -teach %s %s)", name, name, command)
 	}
 
 	f, err := os.Create(commandFile)

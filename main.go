@@ -17,10 +17,13 @@ func main() {
 	}
 
 	// Teach - teach a command to Rachel
-	teachFlag := flag.String("teach", "", "Teach a command to Rachel")
+	teachFlag := flag.String("teach", "", "Teach a command to rachel")
 
 	// Run - run a Rachel command
-	runFlag := flag.String("run", "", "Run a Rachel command")
+	runFlag := flag.String("run", "", "Run a rachel command")
+
+	// Teach - teach a command to Rachel
+	changeFlag := flag.String("change", "", "Change a rachel command")
 
 	flag.Parse()
 
@@ -30,5 +33,9 @@ func main() {
 
 	if *runFlag != "" {
 		mind.Run(*runFlag)
+	}
+
+	if *changeFlag != "" {
+		mind.Change(*changeFlag)
 	}
 }
