@@ -9,7 +9,7 @@ import (
 
 // Run - run a Rachel command
 func Run(name string) {
-	commandFile := fmt.Sprintf("./commands/%s.rachel", name)
+	commandFile := fmt.Sprintf("/commands/%s.rachel", name)
 
 	command, err := ioutil.ReadFile(commandFile)
 	if err != nil {
