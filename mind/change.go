@@ -23,12 +23,12 @@ func Change(name string) {
 
 	f, err := os.Create(commandFile)
 	if err != nil {
-		log.Fatalln("Permision problem, please execute rachel as root. (sudo rachel)")
+		log.Fatalf("Permision problem, please execute rachel as root. (sudo rachel -change %s %s)", name, command)
 	}
 	defer f.Close()
 
 	err = ioutil.WriteFile(commandFile, []byte(command), 0644)
 	if err != nil {
-		log.Fatalln("Permision problem, please execute rachel as root. (sudo rachel)")
+		log.Fatalf("Permision problem, please execute rachel as root. (sudo rachel -change %s %s)", name, command)
 	}
 }

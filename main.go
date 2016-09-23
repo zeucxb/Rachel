@@ -5,6 +5,7 @@ import (
 	"flag"
 	"log"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -12,7 +13,8 @@ func main() {
 	_, err := os.Stat("/commands/")
 	if err != nil {
 		if err := os.Mkdir("/commands/", 0777); err != nil {
-			log.Fatalln("Permision problem, please execute rachel as root. (sudo rachel)")
+			command := strings.Join(os.Args, " ")
+			log.Fatalf("Permision problem, please execute rachel as root. (sudo %s)", command)
 		}
 	}
 
