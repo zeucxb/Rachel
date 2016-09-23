@@ -7,6 +7,7 @@ import (
 	"os/exec"
 )
 
+// Run - run a Rachel command
 func Run(name string) {
 	commandFile := fmt.Sprintf("./commands/%s.rachel", name)
 
