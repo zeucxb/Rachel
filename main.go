@@ -8,8 +8,20 @@ import (
 	"strings"
 )
 
-func main() {
+// Teach - teach a command to Rachel
+var teachFlag = flag.String("teach", "", "Teach a command to rachel")
 
+// Run - run a Rachel command
+var runFlag = flag.String("run", "", "Run a rachel command")
+
+// Change - change a rachel command
+var changeFlag = flag.String("change", "", "Change a rachel command")
+
+func init() {
+	flag.Parse()
+}
+
+func main() {
 	_, err := os.Stat("/rachel/")
 	if err != nil {
 		if err := os.Mkdir("/rachel/", 0777); err != nil {
@@ -17,17 +29,6 @@ func main() {
 			log.Fatalf("Permision problem, please execute rachel as root. (sudo %s)", command)
 		}
 	}
-
-	// Teach - teach a command to Rachel
-	teachFlag := flag.String("teach", "", "Teach a command to rachel")
-
-	// Run - run a Rachel command
-	runFlag := flag.String("run", "", "Run a rachel command")
-
-	// Teach - teach a command to Rachel
-	changeFlag := flag.String("change", "", "Change a rachel command")
-
-	flag.Parse()
 
 	if *teachFlag != "" {
 		mind.Teach(*teachFlag)
